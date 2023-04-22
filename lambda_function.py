@@ -60,7 +60,7 @@ class AskIntentHandler(AbstractRequestHandler):
         return ask_utils.is_intent_name("AskIntent")(handler_input)
         
     def handle(self, handler_input):
-        openai.api_key = "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"
+        openai.api_key = "YOUR_API_KEY"
         query = str(handler_input.request_envelope.request.intent.slots["ask"].value)
         completions = openai.Completion.create(engine="text-davinci-003", prompt=query, max_tokens=1500, n=1, stop=None, temperature=0.5)
         result = completions.choices[0].text
